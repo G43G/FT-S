@@ -1,0 +1,329 @@
+@import 'mixins.scss';
+
+#main {
+
+    #snap-single {
+
+        .snap-single-holder {
+            margin-left: 4em;
+
+            .snap-image-holder {
+                position: relative;
+                width: 50%;
+                float: left;
+
+                .snap-image-overlay-holder {
+                    position: relative;
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+
+                .filter-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    opacity: .3;
+                }
+
+                .snap-image-info {
+                    width: 100%;
+                    position: relative;
+                    height: 84.5px;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    border-top: 5px solid $dark-color;
+
+                    .snap-like-icon-holder {
+                        position: relative;
+
+                        .snap-like-button,
+                        .snap-dislike-button {
+                            vertical-align: middle;
+                            display: inline-block;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            color: transparent;
+                            font-size: 25px;
+                            cursor: pointer;
+                            -webkit-text-stroke: 2px $second-main-color;
+                            transition: all .2s ease-out;
+                            opacity: 1;
+                            visibility: visible;
+
+                            &:hover {
+                                color: $second-main-color;
+                            }
+                        }
+
+                        .snap-dislike-button {
+                            color: $second-main-color;
+                            -webkit-text-stroke: 2px $second-main-color;
+
+                            &:hover {
+                                color: transparent;
+                                -webkit-text-stroke: 2px $second-main-color;
+                            }
+                        }
+
+                        .snap-likes-count {
+                            font-weight: 500;
+
+                            a {
+                                @include links();
+                            }
+                        }
+
+                        > i {
+                            display: inline-block;
+                            width: 48px;
+                            vertical-align: middle;
+                            -webkit-text-stroke: 2px #888;
+                            font-size: 25px;
+                        }
+                    }
+
+                    .snap-comments-icon-holder {
+
+                        i {
+                            vertical-align: middle;
+                        }
+
+                        .snap-comments-count {
+                            font-weight: 500;
+                            line-height: 40px;
+                        }
+
+                        .icon-comment {
+
+                            > i {
+                                color: #4169e1;
+                                display: inline-block;
+                                width: 48px;
+
+                                &.no-auth {
+                                    color: #888;
+                                }
+                            }
+                        }
+                    }
+
+                    .snap-privacy-icon-holder {
+
+                        i {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+
+                .snap-comments-holder {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    border-top: 5px solid $dark-color;
+                    background-color: #fff;
+
+                    .snap-comments {
+                        padding: 0 25px;
+                        box-sizing: border-box;
+                        text-align: left;
+                        max-height: 500px;
+                        overflow-y: scroll;
+                        border-bottom: 5px solid $dark-color;
+
+                        &::-webkit-scrollbar {
+                            width: 7px;
+                        }
+
+                        &::-webkit-scrollbar-track {
+                            background: #ddd;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background: #666;
+                        }
+
+                        .comment-holder {
+                            display: block;
+                            position: relative;
+                            margin: 25px 0 0;
+                            padding: 0 0 25px;
+                            border-bottom: 1px solid $dark-color;
+
+                            .comment-image-holder {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                display: inline-block;
+                                vertical-align: top;
+                                width: 50px;
+
+                                a {
+                                    border: none;
+                                }
+
+                                img {
+                                    display: block;
+                                    border-radius: 0;
+                                }
+                            }
+
+                            .comment-content-holder {
+                                padding-left: 60px;
+                                display: inline-block;
+                                vertical-align: top;
+
+                                .user-comment-text,
+                                .user-comment-date {
+                                    display: block;
+                                    line-height: 29px;
+                                }
+
+                                .user-comment-date {
+                                    margin-top: -5px;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+
+                                .user-comment-edit,
+                                .user-comment-delete {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    line-height: 20px;
+
+                                    a {
+                                        border-bottom: none;
+                                        font-size: 20px;
+                                    }
+                                }
+
+                                .user-comment-edit {
+                                    right: 30px;
+
+                                    a {
+                                        transition: all .3s ease-out;
+
+                                        &:hover {
+                                            color: $first-main-color;
+                                        }
+
+                                        &.cancel-edit-comment {
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+
+                                            &:hover {
+                                                color: $red-color;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .user-comment-delete {
+                                    top: -1px;
+
+                                    a {
+
+                                        &:hover {
+                                            color: $red-color;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:last-child {
+                                border: none;
+                            }
+                        }
+                    }
+
+                    .snap-comments-form {
+                        padding: 25px;
+                        box-sizing: border-box;
+
+                        textarea {
+                            min-height: auto;
+                            resize: none;
+                            position: relative;
+                            transition: none;
+                            top: 0;
+                            left: 0;
+                        }
+
+                        input[type="button"] {
+                            width: 100%;
+                            margin-top: 1em;
+                        }
+                    }
+
+                    .comment-notice {
+                        background-color: #fff;
+                        padding: 25px 0;
+                        text-align: center;
+
+                        a {
+                            @include links();
+                        }
+                    }
+                }
+            }
+
+            .snap-info-holder {
+                position: relative;
+                float: left;
+                width: calc(40% + 42px);
+                padding: 0 0 0 2em;
+                text-align: left;
+                display: block;
+
+                a {
+                    @include links();
+                }
+
+                h3 {
+                    display: block;
+                    margin: 20px 0;
+
+                    i {
+                        margin-right: 15px;
+                        vertical-align: middle;
+                    }
+
+                    &:first-child {
+
+                        i {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+
+                p {
+                    display: block;
+                    border-top: 1px solid $dark-color;
+                    padding: 25px 0;
+                    font-weight: 500;
+                }
+            }
+
+            &.clearfix {
+
+                &:after {
+                    content: '';
+                    display: block;
+                    height: 0;
+                    clear: both;
+                }
+            }
+        }
+    }
+}

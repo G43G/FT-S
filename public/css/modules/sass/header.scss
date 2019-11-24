@@ -1,0 +1,53 @@
+@import 'mixins.scss';
+
+#header {
+
+    .top {
+
+        #logo {
+
+            .image.avatar48 {
+                background: none !important;
+            }
+        }
+
+        #nav {
+
+            ul {
+
+                li {
+
+                    a {
+
+                        span {
+                            transition: color .3s ease-out;
+
+                            &:before {
+                                transition: color .3s ease-out;
+                            }
+                        }
+
+                        &:hover {
+
+                            span {
+                                color: #fff;
+
+                                &:before {
+                                    color: $second-main-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+
+        p {
+            padding-left: 1.5em;
+            text-align: left;
+        }
+    }
+}

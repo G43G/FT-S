@@ -1,0 +1,363 @@
+@import 'mixins.scss';
+
+#discover {
+
+    @media only screen and (max-width: 1366px) {
+
+        .row {
+            margin: -20px 0 -1px -20px;
+
+            > * {
+                padding: 20px 0 0 20px;
+            }
+        }
+    }
+
+    .discovered-limited-snaps,
+    .discovered-liked-snaps,
+    .discover-commented-snaps,
+    .discover-viewed-snaps {
+        padding: 2em 0;
+    }
+
+    .form-holder {
+        width: 50%;
+        float: none;
+        margin: 0 auto;
+        padding: 0 0 2.5em 0;
+        border-bottom: 1px solid $first-main-color;
+        opacity: .75;
+
+        form {
+            position: relative;
+        }
+
+        .search-button {
+            display: none;
+        }
+
+        .snap-search-label {
+            display: inline-block;
+            padding: 13px 25px;
+            cursor: pointer;
+            color: $first-main-color;
+            transition: color .3s ease-out;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+
+            > * {
+                vertical-align: middle;
+            }
+
+            &:hover {
+                color: $second-main-color;
+            }
+        }
+    }
+
+    .content-holder {
+        width: 100%;
+
+        .user-title-holder {
+            margin-bottom: 2em;
+            padding: 0 0 2em;
+            border-bottom: 1px dashed $first-main-color;
+            opacity: .75;
+            text-align: center;
+        }
+
+        .snaps-title-holder {
+            width: 100%;
+            padding: 1em 0;
+            border-top: 1px dashed $first-main-color;
+            border-bottom: 1px solid $first-main-color;
+            opacity: .75;
+            text-align: center;
+        }
+
+        .users-holder {
+            padding: 1em 0;
+
+            .flex {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .user {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    a {
+                        @include links();
+                    }
+
+                    img {
+                        width: 128px;
+                        height: 128px;
+                    }
+
+                    .user-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        text-align: center;
+                        background-color: transparent;
+                        opacity: 0;
+                        transition: opacity .3s ease-out;
+
+                        .user-username {
+                            font-family: 'Kalam', sans-serif;
+                            font-size: 2em;
+                            position: absolute;
+                            top: 0;
+                            left: -35px;
+                            transform: skewY(-10deg) rotate(-25deg) translateY(-50%);
+                            color: $second-main-color;
+                        }
+                    }
+
+                    &:hover {
+
+                        .user-overlay {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .item {
+            position: relative;
+            border-top: 0.35em solid #fff;
+            border-left: 0.35em solid #fff;
+            border-right: 0.35em solid #fff;
+            border-bottom: none;
+
+            .image {
+                position: relative;
+
+                .filter-overlay{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    opacity: .3;
+                }
+            }
+
+            .snap-text {
+                padding: 1em;
+                min-height: 84.5px;
+
+                > * {
+                    line-height: 2.2;
+                    font-weight: 500;
+                }
+            }
+
+            @media only screen and (max-width: 1366px) {
+
+                .snap-text {
+
+                    > * {
+                        line-height: 2.5;
+                    }
+                }
+            }
+
+            .snap-icons {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 84.5px;
+                padding: 1em 0;
+                text-align: left;
+                font-size: 25px;
+                opacity: 0;
+                transition: opacity .3s ease-out;
+
+                .snap-like-icon-holder {
+                    position: relative;
+
+                    .snap-like-button,
+                    .snap-dislike-button {
+                        vertical-align: middle;
+                        display: inline-block;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        font-size: 25px;
+                        color: transparent;
+                        cursor: pointer;
+                        -webkit-text-stroke: 2px $second-main-color;
+                        transition: all .2s ease-out;
+                        opacity: 1;
+                        visibility: visible;
+
+                        > i {
+                            display: inline-block;
+                            width: 35px;
+                            vertical-align: middle;
+                        }
+
+                        &:hover {
+                            color: $second-main-color;
+                        }
+                    }
+
+                    .snap-dislike-button {
+                        color: $second-main-color;
+                        -webkit-text-stroke: 2px $second-main-color;
+
+                        &:hover {
+                            color: transparent;
+                            -webkit-text-stroke: 2px $second-main-color;
+                        }
+                    }
+
+                    .snap-likes-count {
+                        font-weight: 500;
+                        line-height: 40px;
+                        vertical-align: baseline;
+
+                        a {
+                            @include links();
+                        }
+                    }
+                }
+
+                .snap-comments-icon-holder {
+
+                    i {
+                        vertical-align: middle;
+                    }
+
+                    .snap-comments-count {
+                        font-weight: 500;
+                        line-height: 40px;
+                        vertical-align: baseline;
+                    }
+
+                    .icon-comment {
+
+                        > i {
+                            color: #4169e1;
+                            display: inline-block;
+                            width: 48px;
+                            vertical-align: middle;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .snap-privacy-icon-holder {
+
+                    > * {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+
+                .snap-views-icon-holder {
+
+                    > i {
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 40px;
+                    }
+
+                    .snap-views-count {
+                        font-weight: 500;
+                        line-height: 40px;
+                        vertical-align: baseline;
+                    }
+                }
+            }
+
+            &:hover {
+
+                .snap-icons {
+                    opacity: 1;
+                }
+            }
+
+            @media only screen and (max-width: 1366px) {
+
+                .snap-icons {
+                    font-size: 18px;
+
+                    .snap-like-icon-holder {
+
+                        .snap-like-button,
+                        .snap-dislike-button {
+                            font-size: 18px;
+
+                            > i {
+                                width: 22px;
+                            }
+                        }
+                    }
+
+                    .snap-comments-icon-holder {
+
+                        .icon-comment {
+
+                            > i {
+                                width: 30px;
+                            }
+                        }
+                    }
+
+                    .snap-views-icon-holder {
+
+                        > i {
+                            width: 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .search-snaps {
+            padding-top: 2em;
+        }
+
+        .no-auth {
+            position: relative;
+            padding-top: 2em;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            h3 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%);
+                padding: 15px 20px;
+                background-color: rgba(255, 255, 255, .5);
+                color: $dark-color;
+                font-weight: 700;
+                width: 100%;
+
+                a {
+                    @include links();
+                    color: $dark-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,170 @@
+@import 'mixins.scss';
+
+#archive {
+
+    > div {
+        padding-bottom: 2em;
+    }
+
+    .item {
+        position: relative;
+        border-top: 0.35em solid #fff;
+        border-left: 0.35em solid #fff;
+        border-right: 0.35em solid #fff;
+        border-bottom: none;
+
+        .image {
+            position: relative;
+
+            .filter-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                opacity: .3;
+            }
+        }
+
+        .snap-text {
+            padding: 1em;
+            min-height: 84.5px;
+
+            > * {
+                line-height: 2.2;
+                font-weight: 500;
+            }
+        }
+
+        .snap-icons {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 84.5px;
+            padding: 1em 0;
+            text-align: left;
+            font-size: 25px;
+            opacity: 0;
+            transition: opacity .3s ease-out;
+
+            .snap-like-icon-holder {
+                position: relative;
+
+                .snap-like-button,
+                .snap-dislike-button {
+                    vertical-align: middle;
+                    display: inline-block;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    font-size: 25px;
+                    color: transparent;
+                    cursor: pointer;
+                    -webkit-text-stroke: 2px $second-main-color;
+                    transition: all .2s ease-out;
+                    opacity: 1;
+                    visibility: visible;
+
+                    > i {
+                        display: inline-block;
+                        width: 35px;
+                        vertical-align: middle;
+                    }
+
+                    &:hover {
+                        color: $second-main-color;
+                    }
+                }
+
+                .snap-dislike-button {
+                    color: $second-main-color;
+                    -webkit-text-stroke: 2px $second-main-color;
+
+                    &:hover {
+                        color: transparent;
+                        -webkit-text-stroke: 2px $second-main-color;
+                    }
+                }
+
+                .snap-likes-count {
+                    font-weight: 500;
+                    line-height: 40px;
+                    vertical-align: baseline;
+
+                    a {
+                        @include links();
+                    }
+                }
+
+                > i {
+                    display: inline-block;
+                    width: 35px;
+                    vertical-align: middle;
+                }
+            }
+
+            .snap-comments-icon-holder {
+
+                i {
+                    vertical-align: middle;
+                }
+
+                .snap-comments-count {
+                    font-weight: 500;
+                    line-height: 40px;
+                    vertical-align: baseline;
+                }
+
+                .icon-comment {
+
+                    > i {
+                        color: #4169e1;
+                        display: inline-block;
+                        width: 48px;
+                        vertical-align: middle;
+                        text-align: center;
+
+                        &.no-comment {
+                            color: #888;
+                        }
+                    }
+                }
+            }
+
+            .snap-privacy-icon-holder {
+
+                > i {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            .snap-views-icon-holder {
+
+                > i {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 40px;
+                }
+
+                .snap-views-count {
+                    font-weight: 500;
+                    line-height: 40px;
+                    vertical-align: baseline;
+                }
+            }
+        }
+
+        &:hover {
+
+            .snap-icons {
+                opacity: 1;
+            }
+        }
+    }
+}

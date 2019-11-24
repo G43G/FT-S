@@ -1,0 +1,201 @@
+@import 'mixins.scss';
+
+body {
+
+    .tooltip-custom {
+        min-width: 350px;
+        width: auto;
+        height: auto;
+
+        .data-image-holder {
+            float: left;
+            width: 25%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .data-text-holder {
+            width: 75%;
+            float: left;
+            padding-left: 1em;
+
+            span {
+                display: inline-block;
+                font-size: .5em;
+            }
+
+            span:not(.head) {
+                padding-left: .5em;
+                font-weight: 600;
+            }
+        }
+
+        &.snap-tooltip {
+            min-width: auto;
+            text-align: center;
+            font-size: .75em;
+        }
+    }
+}
+
+#main {
+
+    > section {
+
+        &#home {
+            padding: 1.5em 0;
+        }
+
+        &#archive {
+            padding: 2em 0;
+        }
+    }
+
+    #login {
+
+        .container {
+
+            p {
+                margin-top: 1.5em;
+
+                a {
+                    @include links();
+                }
+            }
+        }
+    }
+
+    #register {
+
+        label {
+            font-size: 0.64em;
+            color: $first-main-color;
+        }
+
+        @media only screen and (max-width: 1366px) {
+
+            label {
+                font-size: 0.6em;
+                color: $first-main-color;
+            }
+        }
+    }
+
+    #notice {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 120;
+
+        .notices-wrapper {
+            margin-left: 375px;
+            background-color: transparent;
+            position: relative;
+            width: auto;
+            height: 100%;
+
+            .notices {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: auto;
+                display: block;
+                background-color: #fff;
+                outline: 1px solid #888;
+                border: 3px solid $dark-color;
+                transform: translateX(-50%) translateY(-50%);
+
+                .notices-body {
+                    padding: 1em;
+                    overflow-y: scroll;
+                    min-width: 560px;
+                    max-height: 300px;
+
+                    &::-webkit-scrollbar {
+                        width: 7px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: #ddd;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: #666;
+                    }
+
+                    .error,
+                    .success {
+                        text-align: center;
+
+                        p {
+                            display: inline-block;
+                            margin: 0 0 0 1em;
+                            font-size: 0.75em;
+                            font-weight: 400;
+                            color: $red-color;
+                        }
+
+                        i {
+                            font-size: 0.75em;
+                            color: $red-color;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    .success {
+
+                        p, i {
+                            color: #228b22;
+                        }
+                    }
+
+                    .info {
+
+                        .info-title {
+                            text-align: center;
+                            margin-bottom: .2em;
+                            border-bottom: 1px solid $dark-color;
+                        }
+
+                        .info-body {
+                            padding: 0 5em;
+                            text-align: center;
+
+                            a {
+                                @include links();
+                                display: block;
+                            }
+                        }
+                    }
+
+                    input[type="button"] {
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    label {
+                        text-align: center;
+                        font-size: .8em;
+                        font-weight: 400;
+                        color: $dark-color;
+
+                        &.error-label {
+                            color: $red-color;
+                        }
+
+                        &.success-label {
+                            color: $first-main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

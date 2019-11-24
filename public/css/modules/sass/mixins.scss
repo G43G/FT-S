@@ -1,0 +1,15 @@
+$first-main-color: #8ebebc;
+$second-main-color: #e27689;
+$dark-color: #222629;
+$red-color: #b33a3a;
+
+@mixin links() {
+    border-bottom: none;
+    font-weight: 500;
+    color: $first-main-color;
+    cursor: pointer;
+
+    &:hover {
+        color: $second-main-color;
+    }
+}

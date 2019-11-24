@@ -1,0 +1,174 @@
+@import 'mixins.scss';
+
+#admin-header {
+    padding: 4em 0 2em 0 !important;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            width: auto;
+
+            a {
+
+                &.active {
+                    box-shadow: 0 10px 10px -7px $dark-color;
+                }
+            }
+        }
+    }
+}
+
+#admin-body {
+    padding: 2em 0 !important;
+
+    .table-wrapper {
+
+        .wrapper-paging {
+            text-align: left;
+
+            ul {
+                margin-bottom: 0.5em;
+
+                li {
+                    display: inline-block;
+
+                    a {
+                        @include links();
+                        display: inline-block;
+
+                        &.paging-this {
+                            color: #666;
+                            font-weight: 300;
+                            cursor: default;
+                        }
+
+                        &:not(.paging-this) {
+                            color: $dark-color;
+
+                            &:hover {
+                                color: $first-main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        table {
+            font-size: .75em;
+            color: $dark-color;
+            border-top: 1px solid $dark-color;
+            border-left: 1px solid $dark-color;
+            border-right: 1px solid $dark-color;
+
+            thead {
+                background-color: $first-main-color;
+                font-weight: 500;
+            }
+
+            th {
+
+            }
+
+            tr, td {
+                padding: .1em;
+                box-sizing: border-box;
+            }
+
+            tr {
+                border-bottom: 1px solid $dark-color;
+
+                &:nth-of-type(2n) {
+                    background-color: rgba(178, 178, 178, .3);
+                }
+            }
+
+            td {
+
+                &.tooltip-link {
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+
+            a {
+                color: $dark-color;
+                border-bottom: none;
+
+                &:hover {
+                    color: $second-main-color;
+                }
+
+                &.edit {
+
+                    &:hover {
+                        color: $first-main-color;
+                    }
+                }
+
+                &.delete {
+
+                    &:hover {
+                        color: $red-color;
+                    }
+                }
+            }
+        }
+    }
+
+    #admin-form {
+
+        textarea {
+            min-height: 10em;
+        }
+    }
+
+    .input-switch::-webkit-clear-button {
+        display: none;
+    }
+
+    .input-switch::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    .input-switch::-webkit-calendar-picker-indicator {
+        color: #2c3e50;
+    }
+
+    .input-switch {
+        width: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        color: #888;
+        font-weight: 300;
+        line-height: 1.25em;
+        background: rgba(255,255,255,0.75);
+        padding: 0.75em 1em 0.75em 1em;
+        box-shadow: inset 0 0.1em 0.1em 0 rgba(0,0,0,0.05);
+        border: solid 1px rgba(0,0,0,0.15);
+        border-radius: 0.35em;
+        box-sizing: border-box;
+        display: inline-block !important;
+        visibility: visible !important;
+    }
+
+    .input-switch:focus {
+        box-shadow: 0 0 2px 1px $first-main-color;
+        background: #fff;
+        outline: none;
+        border: none;
+    }
+
+    .button-holder {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .cancel-button {
+        background-color: $red-color;
+    }
+}
+

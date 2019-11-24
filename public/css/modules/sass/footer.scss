@@ -1,0 +1,8 @@
+@import 'mixins.scss';
+
+#footer {
+
+    a {
+        @include links();
+    }
+}

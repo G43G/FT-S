@@ -1,0 +1,89 @@
+@import 'mixins.scss';
+
+#about {
+    position: relative;
+
+    .info-holder {
+
+        .about-image {
+            float: left;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            .documentation-link {
+                margin: 1em 0 0 0;
+                text-align: center;
+
+                a {
+                    @include links();
+                }
+            }
+        }
+
+        .about-info {
+            float: right;
+            width: 55%;
+            text-align: justify;
+
+            .anchor {
+                @include links();
+            }
+        }
+
+        @media only screen and (max-width: 1366px) {
+
+            .about-image {
+                width: 35%;
+
+                .documentation-link {
+                    font-size: 0.83em;
+
+                    a {
+                        @include links();
+                    }
+                }
+            }
+
+            .about-info {
+                width: 60%;
+                font-size: 0.83em;
+            }
+        }
+    }
+
+    .about-social-holder {
+        float: right;
+        width: 55%;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            @include links();
+            font-size: 2em;
+            transition: transform .3s ease-out;
+
+            &.facebook {
+                color: #3b5998;
+            }
+
+            &.twitter {
+                color: #00aced;
+            }
+
+            &.instagram {
+                color: #bc2a8d;
+            }
+
+            &.linkedin {
+                color: #0e76a8;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
