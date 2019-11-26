@@ -10,7 +10,6 @@
             <div class="info-holder">
                 <div class="about-image">
                     <img src="{{ asset('/img/main/about-me.jpg') }}" alt="about-me-image" />
-                    <p class="documentation-link">Documentation for this project can be found <a href="{{ asset('/about/download') }}" title="Project Documentation">here</a>.</p>
                 </div>
                 <div class="about-info">
                     <p>Hi, my name is Bogdan Matorkić (student number 30/13) and I am
