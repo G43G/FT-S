@@ -1,5 +1,5 @@
 # FT-S
-App from the final thesis in ICT 
+App from the ICT final thesis
 
 TO DO:
 
